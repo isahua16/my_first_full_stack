@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.get('/api/candy')
 def get_candy():
     results = run_statement('call get_candy()')
-    if(type(results) == list and results != []):
+    if(type(results) == list):
         return make_response(jsonify(results), 200)
     else:
         return make_response('Something went wrong', 500)
